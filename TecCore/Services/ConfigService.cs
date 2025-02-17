@@ -18,7 +18,7 @@ public interface IConfigService
 
 public class ConfigService : IConfigService
 {
-    private static string BasePath { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Gitec");
+    private static string BasePath { get; set; } = GetBasePath();
     public TecConfig Config { get; set; } = new TecConfig();
     public static string ConfigPath { get; set; } = Path.Combine(BasePath, "Config");
     public static string ConfigFile { get; set; } = Path.Combine(ConfigPath, "config.json");
@@ -31,6 +31,18 @@ public class ConfigService : IConfigService
         LoadConfig();
         Console.WriteLine("ConfigService initialized");
         Console.WriteLine($"Base Path: {BasePath}");
+    }
+    
+    private static string GetBasePath()
+    {
+        return Environment.OSVersion.Platform switch
+        {
+            // is application running on windows or linux
+            PlatformID.Win32NT => Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "Gitec"),
+            PlatformID.Unix => Path.Combine("/var/lib/", "Gitec"),
+            _ => BasePath
+        };
     }
  
     private void Init()
