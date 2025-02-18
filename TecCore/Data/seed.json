@@ -1,0 +1,418 @@
+﻿{
+  "Course": [
+    {
+      "name": "Accounting",
+      "code": "ACCT"
+    },
+    {
+      "name": "Health Careers",
+      "code": "HC"
+    },
+    {
+      "name": "Construction Trades",
+      "code": "CONST"
+    },
+    {
+      "name": "Welding",
+      "code": "WELD"
+    },
+    {
+      "name": "Automotive Technology",
+      "code": "AUTO"
+    },
+    {
+      "name": "Business Management",
+      "code": "BUSMAN"
+    },
+    {
+      "name": "Small Engines",
+      "code": "SE"
+    },
+    {
+      "name": "Marketing",
+      "code": "MKTG"
+    },
+    {
+      "name": "Educational Careers",
+      "code": "EDU"
+    },
+    {
+      "name": "Interior Design",
+      "code": "INT"
+    },
+    {
+      "name": "Culinary Arts",
+      "code": "CUL"
+    },
+    {
+      "name": "Digital Media",
+      "code": "DIG"
+    },
+    {
+      "name": "Graphic Arts",
+      "code": "GRAPH"
+    },
+    {
+      "name": "Technical Drafting",
+      "code": "CAD"
+    },
+    {
+      "name": "Cyber Security",
+      "code": "CYBER"
+    },
+    {
+      "name": "Machine Trades",
+      "code": "MACH"
+    }
+  ],
+  "RoomLocations": [
+    {
+      "room_number": "400",
+      "name": "Digital Media"
+    },
+    {
+      "room_number": "410",
+      "name": "IT Office"
+    },
+    {
+      "room_number": "420",
+      "name": "Administrative Office"
+    },
+    {
+      "room_number": "500",
+      "name": "School Store"
+    },
+    {
+      "room_number": "502",
+      "name": "Marketing"
+    },
+    {
+      "room_number": "503",
+      "name": "Health Careers"
+    },
+    {
+      "room_number": "506",
+      "name": "Interior Design Lab 1"
+    },
+    {
+      "room_number": "507",
+      "name": "Interior Design"
+    },
+    {
+      "room_number": "713",
+      "name": "Interior Design Lab 2"
+    },
+    {
+      "room_number": "508",
+      "name": "Technical Drafting"
+    },
+    {
+      "room_number": "509",
+      "name": "Technical Drafting Lab"
+    },
+    {
+      "room_number": "511",
+      "name": "Health Careers"
+    },
+    {
+      "room_number": "600",
+      "name": "Accounting"
+    },
+    {
+      "room_number": "601",
+      "name": "Educational Careers"
+    },
+    {
+      "room_number": "603",
+      "name": "IT Lab"
+    },
+    {
+      "room_number": "604",
+      "name": "Cyber Security"
+    },
+    {
+      "room_number": "605",
+      "name": "Business Management"
+    },
+    {
+      "room_number": "610",
+      "name": "Culinary Arts"
+    },
+    {
+      "room_number": "620",
+      "name": "Small Engines"
+    },
+    {
+      "room_number": "621",
+      "name": "Small Engines Lab 1"
+    },
+    {
+      "room_number": "622",
+      "name": "Small Engines Lab 2"
+    },
+    {
+      "room_number": "700",
+      "name": "Machine Trades"
+    },
+    {
+      "room_number": "701",
+      "name": "Graphic Arts"
+    },
+    {
+      "room_number": "510",
+      "name": "Graphic Arts Lab"
+    },
+    {
+      "room_number": "705",
+      "name": "Automotive Technology Classroom"
+    },
+    {
+      "room_number": "705",
+      "name": "Automotive Technology Lab"
+    },
+    {
+      "room_number": "710",
+      "name": "Welding"
+    },
+    {
+      "room_number": "711",
+      "name": "Construction Trades Classroom"
+    },
+    {
+      "room_number": "712",
+      "name": "Construction Trades Lab 1"
+    },
+    {
+      "room_number": "714",
+      "name": "Construction Trades Lab 2"
+    },
+    {
+      "room_number": "716",
+      "name": "Construction Trades Lab 3"
+    }
+  ],
+  "UserProfiles": [
+    {
+      "name": "Joe Marchiando",
+      "email": "jmarchiando@gi-tec.net",
+      "phone_number": "20400",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Arthur Frey",
+      "email": "afrey@gi-tec.net",
+      "phone_number": "20603",
+      "type": "Staff",
+      "title": "IT Specialist"
+    },
+    {
+      "name": "Barb Schafer",
+      "email": "baschafer@gi-tec.net",
+      "phone_number": "20850",
+      "type": "Staff",
+      "title": ""
+    },
+    {
+      "name": "Camille Greening",
+      "email": "cgreening@gi-tec.net",
+      "room_number": "420",
+      "phone_number": "20858",
+      "type": "Staff",
+      "title": ""
+    },
+    {
+      "name": "GI-TEC Office Co-op",
+      "email": "officecoop@gi-tec.net",
+      "room_number": "420",
+      "phone_number": "20851",
+      "type": "Staff",
+      "title": ""
+    },
+    {
+      "name": "Kim Deans",
+      "email": "kdeans@gi-tec.net",
+      "room_number": "420",
+      "phone_number": "20857",
+      "type": "Staff",
+      "title": ""
+    },
+    {
+      "name": "Laurie Zurawski",
+      "email": "lzurawski@gi-tec.net",
+      "room_number": "420",
+      "phone_number": "20852",
+      "type": "Staff",
+      "title": ""
+    },
+    {
+      "name": "Pat Onstott",
+      "email": "ponstott@gi-tec.net",
+      "room_number": "420",
+      "phone_number": "20853",
+      "type": "Staff",
+      "title": ""
+    },
+    {
+      "name": "Stephanie Morey",
+      "email": "smorey@gi-tec.net",
+      "room_number": "420",
+      "phone_number": "20502",
+      "type": "Staff",
+      "title": ""
+    },
+    {
+      "name": "Kristin Russell",
+      "email": "krussell@gi-tec.net",
+      "room_number": "502",
+      "phone_number": "20502",
+      "type": "Para"
+    },
+    {
+      "name": "Michelle Claybaugh",
+      "email": "mclaybaugh@gi-tec.net",
+      "room_number": "502",
+      "phone_number": "20502",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Cheryl Lobert",
+      "email": "clobert@gi-tec.net",
+      "room_number": "503",
+      "phone_number": "20503",
+      "type": "Para"
+    },
+    {
+      "name": "Denise Arnold",
+      "email": "darnold@gi-tec.net",
+      "room_number": "503",
+      "phone_number": "20503",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Megan Williams",
+      "email": "mwilliams@gi-tec.net",
+      "room_number": "507",
+      "phone_number": "20507",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Jennifer Chandler-Conner",
+      "email": "jchandler-conner@gi-tec.net",
+      "room_number": "511",
+      "phone_number": "20511",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Kerry Lockwood",
+      "email": "klockwood@gi-tec.net",
+      "room_number": "600",
+      "phone_number": "20600",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Amy Schell",
+      "email": "aschell@gi-tec.net",
+      "room_number": "601",
+      "phone_number": "20601",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Robby Roberts",
+      "email": "rroberts@gi-tec.net",
+      "room_number": "604",
+      "phone_number": "20604",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Mindy Wischmeyer",
+      "email": "mwischmeyer@gi-tec.net",
+      "room_number": "605",
+      "phone_number": "20605",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Jessica Goffnett",
+      "email": "jgoffnett@gi-tec.net",
+      "room_number": "610",
+      "phone_number": "20612",
+      "type": "Para"
+    },
+    {
+      "name": "Tanja Dunn",
+      "email": "tdunn@gi-tec.net",
+      "room_number": "610",
+      "phone_number": "20612",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Kyle Borodychuk",
+      "email": "kborodychuk@gi-tec.net",
+      "room_number": "620",
+      "phone_number": "20620",
+      "type": "Para"
+    },
+    {
+      "name": "Kyle Campbell",
+      "email": "kcampbell@gi-tec.net",
+      "room_number": "620",
+      "phone_number": "20620",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Cade Schafer",
+      "email": "jschafer@gi-tec.net",
+      "room_number": "700",
+      "phone_number": "20700",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Andrea Langley",
+      "email": "alangley@gi-tec.net",
+      "room_number": "701",
+      "phone_number": "20701",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Max Barnett",
+      "email": "mbarnett@gi-tec.net",
+      "room_number": "705",
+      "phone_number": "20705",
+      "type": "Para"
+    },
+    {
+      "name": "Perry Wiles",
+      "email": "pwiles@gi-tec.net",
+      "room_number": "705",
+      "phone_number": "20705",
+      "type": "Instructor",
+      "title": ""
+    },
+    {
+      "name": "Scott Brown",
+      "email": "sbrown@gi-tec.net",
+      "room_number": "714",
+      "phone_number": "20714",
+      "type": "Para"
+    },
+    {
+      "name": "Doug Sickles",
+      "email": "dsickles@gi-tec.net",
+      "room_number": "714",
+      "phone_number": "20714",
+      "type": "Instructor"
+    }
+  ]
+}

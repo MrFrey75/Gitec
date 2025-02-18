@@ -13,6 +13,7 @@ public interface IConfigService
     public static string LogFile { get; }
     public TecConfig Config { get; set; }
     public void UpdateKeyValue(string key, string value);
+    public void Init();
 }
 
 
@@ -24,6 +25,8 @@ public class ConfigService : IConfigService
     public static string ConfigFile { get; set; } = Path.Combine(ConfigPath, "config.json");
     public static string LogPath { get; set; } = Path.Combine(BasePath, "Logs");
     public static string LogFile { get; set; } = Path.Combine(LogPath, "events.log");
+    public static string DatabasePath { get; set; } = Path.Combine(BasePath, "Data");
+    public static string DatabaseFile { get; set; } = Path.Combine(DatabasePath, "TecCore.db");
     
     public ConfigService()
     {
@@ -44,12 +47,17 @@ public class ConfigService : IConfigService
             _ => BasePath
         };
     }
- 
-    private void Init()
+
+    private TecConfig GetConfig()
+    {
+        return Config;
+    }
+
+    public void Init()
     {
         FileDirectoryHelper.CreateDirectory(BasePath);
         FileDirectoryHelper.CreateDirectory(ConfigPath);
-        FileDirectoryHelper.CreateFile(ConfigFile, JsonConvert.SerializeObject(Config));
+        FileDirectoryHelper.CreateFile(ConfigFile, JsonConvert.SerializeObject(GetConfig()));
         FileDirectoryHelper.CreateDirectory(LogPath);
         FileDirectoryHelper.CreateFile(LogFile);
     }

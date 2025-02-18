@@ -1,6 +1,6 @@
 ﻿namespace TecCore.Models;
 
-public class TecConfig
+public class TecConfig 
 {
     public string? AppCoreName { get; set; } = "Gitec";
     public string? AppCoreVersion { get; set; } = "1.0.0";
