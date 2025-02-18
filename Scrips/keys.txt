@@ -1,0 +1,8 @@
+dotnet user-secrets init
+dotnet user-secrets set "teccore.clientId" "b811105c-5db5-4b19-9db8-7e01ac914ac9"
+dotnet user-secrets set "teccore.tenantId" "s7eaaa2e0-ab22-47ef-a037-5e216f661c16"
+dotnet user-secrets set "teccore.clientSecret" "9Gt8Q~vDVttzhKKvbAPqSIgzAYDsaq4bF8cG-a_a"
+
+var clientId = builder.Configuration["teccore.clientId"];
+var tenantId = builder.Configuration["teccore.tenantId"];
+var clientSecret = builder.Configuration["teccore.clientSecret"];
