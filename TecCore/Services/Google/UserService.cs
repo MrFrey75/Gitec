@@ -61,6 +61,8 @@ public class UserService
     }
             // GI-TEC
             // /GI-TEC/Staff
+            // /GI-TEC/Staff/Admin
+            // /GI-TEC/Staff/Faculty
             // /GI-TEC/Students
             // /GI-TEC/Students/2024
             // /GI-TEC/Students/2025

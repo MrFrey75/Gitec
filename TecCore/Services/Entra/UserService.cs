@@ -8,7 +8,7 @@ namespace TecCore.Services.Entra
     {
         public UserService() : base() { }
 
-                protected async Task<IEnumerable<User>> FetchUsersAsync(string? filter = null)
+        private async Task<IEnumerable<User>> FetchUsersAsync(string? filter = null)
         {
             var users = new List<User>();
             const int retryCount = 3;
@@ -76,10 +76,7 @@ namespace TecCore.Services.Entra
 
             return users;
         }
-        
-        /// <summary>
-        /// Updates user information.
-        /// </summary>
+
         public async Task<bool> UpdateUserAsync(User updatedUser)
         {
             try
@@ -94,9 +91,6 @@ namespace TecCore.Services.Entra
             }
         }
 
-        /// <summary>
-        /// Changes the password of a user.
-        /// </summary>
         public async Task<bool> ChangeUserPasswordAsync(string userId, string newPassword)
         {
             try
@@ -119,27 +113,18 @@ namespace TecCore.Services.Entra
             }
         }
 
-        /// <summary>
-        /// Retrieves users with a specified last name.
-        /// </summary>
         public async Task<IEnumerable<User>> GetUsersByLastNameAsync(string lastName) =>
             await FetchUsersAsync($"surname eq '{lastName}'");
+        
+        public async Task<IEnumerable<User>> GetAllUsersAsync() =>
+            await FetchUsersAsync();
 
-        /// <summary>
-        /// Retrieves all staff members.
-        /// </summary>
         public async Task<IEnumerable<User>> GetAllStaffAsync() =>
             await FetchUsersAsync("department eq 'Staff'");
 
-        /// <summary>
-        /// Retrieves all students.
-        /// </summary>
         public async Task<IEnumerable<User>> GetAllStudentsAsync() =>
             await FetchUsersAsync("jobTitle eq 'Student'");
 
-        /// <summary>
-        /// Retrieves all current students based on department year (current year + 5).
-        /// </summary>
         public async Task<IEnumerable<User>> GetAllCurrentStudentsAsync()
         {
             var yearFilters = Enumerable.Range(DateTime.Now.Year, 6)
@@ -149,9 +134,6 @@ namespace TecCore.Services.Entra
             return await FetchUsersAsync(filterQuery);
         }
 
-        /// <summary>
-        /// Retrieves a specific user by ID.
-        /// </summary>
         public async Task<User?> GetUserAsync(string userId) =>
             await _graphClient.Users[userId].GetAsync();
     }

@@ -4,9 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using TecCore;
 using TecCore.Data;
 using Microsoft.EntityFrameworkCore;
-using TecCore.Models.Course;
-using TecCore.Models.Location;
-using TecCore.Models.People;
 using TecCore.Services;
 using TecCore.Services.Entra;
 using TecCore.Services.Google;
@@ -46,6 +43,8 @@ public static class Program
         
         var googleUsers = await googleService.GetAllUsersAsync();
         var googleOrgUnits = await orgUnitService.GetAllOrgUnitsAsync();
+        var mergeService = serviceProvider.GetRequiredService<PeopleMergeService>();
+        
 
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
@@ -62,6 +61,7 @@ public static class Program
         services.AddSingleton<TecCore.Services.Entra.DeviceService>();
         services.AddSingleton<TecCore.Services.Entra.GroupService>();
         services.AddSingleton<TecCore.Services.Entra.UserService>();
+        services.AddSingleton<TecCore.Services.PeopleMergeService>();
 
         
         
