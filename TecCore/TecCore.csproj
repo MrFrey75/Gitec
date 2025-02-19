@@ -9,6 +9,9 @@
     <ItemGroup>
         <!-- JSON Handling -->
         <PackageReference Include="Azure.Identity" Version="1.13.2" />
+        <PackageReference Include="Google.Apis" Version="1.69.0" />
+        <PackageReference Include="Google.Apis.Admin.Directory.directory_v1" Version="1.68.0.3631" />
+        <PackageReference Include="Google.Apis.Auth" Version="1.69.0" />
         <PackageReference Include="Microsoft.VisualStudio.Shell.Interop" Version="17.13.40008" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <!-- Dependency Injection & Config -->
@@ -25,6 +28,12 @@
         <PackageReference Include="Microsoft.Graph" Version="5.70.0" />
         <PackageReference Include="Microsoft.Graph.Core" Version="3.2.3" />
         <PackageReference Include="Microsoft.Identity.Client" Version="4.68.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Update="gitec-auth.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

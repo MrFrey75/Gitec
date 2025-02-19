@@ -1,9 +1,8 @@
-﻿using System.Text.Json.Serialization;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using TecCore.Models;
 using TecCore.Utilities;
 
-namespace TecCore;
+namespace TecCore.Services;
 
 public interface IConfigService
 {

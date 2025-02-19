@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Google.Apis.Admin.Directory.directory_v1;
+using Google.Apis.Services;
+using Microsoft.Extensions.DependencyInjection;
 using TecCore;
 using TecCore.Data;
 using Microsoft.EntityFrameworkCore;
@@ -6,13 +8,15 @@ using TecCore.Models.Course;
 using TecCore.Models.Location;
 using TecCore.Models.People;
 using TecCore.Services;
+using TecCore.Services.Entra;
+using TecCore.Services.Google;
 using TecCore.Utilities;
 
 namespace TecCommanderConsole;
 
 public static class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var services = new ServiceCollection();
         ConfigureServices(services);
@@ -25,18 +29,23 @@ public static class Program
         dbContext.Database.EnsureCreated();
         
         var configService = serviceProvider.GetRequiredService<IConfigService>();
-        var graphService = serviceProvider.GetRequiredService<MsGraphService>();
-
+        
+        var entraUserService = serviceProvider.GetRequiredService<TecCore.Services.Entra.UserService>();
+        var entraGroupService = serviceProvider.GetRequiredService<TecCore.Services.Entra.GroupService>();
+        var entraDeviceService = serviceProvider.GetRequiredService<TecCore.Services.Entra.DeviceService>();
+        
+        
+        var googleService = serviceProvider.GetRequiredService<TecCore.Services.Google.UserService>();
+        var orgUnitService = serviceProvider.GetRequiredService<TecCore.Services.Google.OrgUnitService>();
+        
         //RunPredefinedTests();
         
-        var u1 = graphService.GetUsersByLastNameAsync("Frey").Result;
-        var d1 = graphService.GetAllDevicesAsync().Result;
-        var g1 = graphService.GetAllGroupsAsync().Result;
-
-        foreach (var d in d1)
-        {
-            DeviceHelper.ValidateAndParse(d.DisplayName);
-        }
+        var entraUsers = await entraUserService.GetAllStaffAsync();
+        var entraGroups = await entraGroupService.GetAllGroupsAsync();
+        var entraDevices = await entraDeviceService.GetAllDevicesAsync();
+        
+        var googleUsers = await googleService.GetAllUsersAsync();
+        var googleOrgUnits = await orgUnitService.GetAllOrgUnitsAsync();
 
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
@@ -47,8 +56,29 @@ public static class Program
     // Configure DI services.
     private static void ConfigureServices(IServiceCollection services)
     {
-        services.AddSingleton<MsGraphService>();
+        services.AddSingleton<TecCore.Services.Google.UserService>();
+        services.AddSingleton<TecCore.Services.Google.OrgUnitService>();
+        
+        services.AddSingleton<TecCore.Services.Entra.DeviceService>();
+        services.AddSingleton<TecCore.Services.Entra.GroupService>();
+        services.AddSingleton<TecCore.Services.Entra.UserService>();
+
+        
+        
+        services.AddSingleton<IDirectoryServiceFactory, DirectoryServiceFactory>();
         services.AddSingleton<IConfigService, ConfigService>();
+        
+        services.AddSingleton<DirectoryService>(provider =>
+        {
+            var credential = GoogleHelper.GetCredential().CreateWithUser("af@gi-tec.net");
+            return new DirectoryService(new BaseClientService.Initializer
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = "GITEC Admin API"
+            });
+        });
+        
+        
         services.AddDbContext<TecCoreDbContext>(options =>
             options.UseSqlite($"Data Source={ConfigService.DatabaseFile}"));
     }

@@ -1,4 +1,4 @@
-namespace TecCore.Services;
+﻿namespace TecCore.Services.Entra;
 
 public class GraphQueryBuilder
 {
