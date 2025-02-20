@@ -21,8 +21,5 @@ public class PeopleMergeService
         _googleUserService = googleUserService;
         _dbContext = dbContext;
         _orgUnitService = orgUnitService;
-
     }
-
-
 }
