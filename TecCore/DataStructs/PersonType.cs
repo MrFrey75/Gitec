@@ -4,5 +4,6 @@ public enum PersonType
 {
     Student,
     Faculty,
-    Staff
+    Staff,
+    Paraprofessional,
 }

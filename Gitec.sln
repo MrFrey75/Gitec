@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecCore", "TecCore\TecCore.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecCommanderConsole", "TecCommanderConsole\TecCommanderConsole.csproj", "{AC21769E-AB09-4CB5-9C6F-448568ED4998}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TectTaskCli", "TectTaskCli\TectTaskCli.csproj", "{93F4CE8E-F82F-451F-8B63-C640EC48C31F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{AC21769E-AB09-4CB5-9C6F-448568ED4998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC21769E-AB09-4CB5-9C6F-448568ED4998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC21769E-AB09-4CB5-9C6F-448568ED4998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93F4CE8E-F82F-451F-8B63-C640EC48C31F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F4CE8E-F82F-451F-8B63-C640EC48C31F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93F4CE8E-F82F-451F-8B63-C640EC48C31F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F4CE8E-F82F-451F-8B63-C640EC48C31F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

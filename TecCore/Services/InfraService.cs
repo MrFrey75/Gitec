@@ -1,9 +1,12 @@
-﻿using TecCore.Models;
+﻿using TecCore.DataStructs;
+using TecCore.Models;
 
 namespace TecCore.Services;
 
 public static class InfraService
 {
+    public static List<RoomLocation> RoomLocations { get; set; } = [];
+    public static List<EdCourse> EdCourses { get; set; } = [];
     
     public static List<RoomLocation> GetRoomLocations()
     {
@@ -11,7 +14,120 @@ public static class InfraService
         return RoomLocations;
     }
     
-    public static List<RoomLocation> RoomLocations { get; set; } = [];
+    public static List<EdCourse> GetCourses()
+    {
+        LoadCourses();
+        return EdCourses;
+    }
+    
+    private static void LoadCourses()
+    {
+        // Accounting
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Accounting",
+            CourseCode = "ACCT"
+        });
+        
+        // Automotive Technology
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Automotive Technology",
+            CourseCode = "AUTO"
+        });
+        // Business Management
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Business Management",
+            CourseCode = "BMAN"
+        });
+        // Construction Trades
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Construction Trades",
+            CourseCode = "CNST"
+        });
+        // Culinary Arts
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Culinary Arts",
+            CourseCode = "CLNY"
+        });
+        // Cybersecurity
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Cybersecurity",
+            CourseCode = "CYBR"
+        });
+        // Digital Media
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Digital Media",
+            CourseCode = "DIGM"
+        });
+        // Educational Careers
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Educational Careers",
+            CourseCode = "EDUC"
+        });
+        // Graphic Arts
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Graphic Arts",
+            CourseCode = "GRPH"
+        });
+        // Health Careers
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Health Careers",
+            CourseCode = "HEAL"
+        });
+        // Interior Design
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Interior Design",
+            CourseCode = "INTD"
+        });
+        // Machine Trades
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Machine Trades",
+            CourseCode = "MACH"
+        });
+        // Marketing
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Marketing",
+            CourseCode = "MKTG"
+        });
+        // Patient Services
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Patient Services",
+            CourseCode = "PSRV"
+        });
+        // Small Engines
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Small Engines",
+            CourseCode = "SMEN"
+        });
+        // Technical Drafting
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Technical Drafting",
+            CourseCode = "TDRF"
+        });
+        // Welding
+        EdCourses.Add(new EdCourse()
+        {
+            CourseName = "Welding",
+            CourseCode = "WELD"
+        });
+        
+    }
+    
 
     private static void LoadRooms()
     {

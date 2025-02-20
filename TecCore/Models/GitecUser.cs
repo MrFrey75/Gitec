@@ -66,3 +66,11 @@ public class StaffMember : GitecUser
         PersonType = PersonType.Staff;
     }
 }
+
+public class Paraprofessional  : GitecUser
+{
+    public Paraprofessional()
+    {
+        PersonType = PersonType.Paraprofessional;
+    }
+}

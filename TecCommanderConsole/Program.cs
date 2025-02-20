@@ -26,23 +26,23 @@ public static class Program
         var configService = serviceProvider.GetRequiredService<IConfigService>();
         
         var entraUserService = serviceProvider.GetRequiredService<TecCore.Services.Entra.UserService>();
-        var entraGroupService = serviceProvider.GetRequiredService<TecCore.Services.Entra.GroupService>();
-        var entraDeviceService = serviceProvider.GetRequiredService<TecCore.Services.Entra.DeviceService>();
-        
+
         
         var googleService = serviceProvider.GetRequiredService<TecCore.Services.Google.UserService>();
         var orgUnitService = serviceProvider.GetRequiredService<TecCore.Services.Google.OrgUnitService>();
         
         //RunPredefinedTests();
         
-        var entraUsers = await entraUserService.GetAllStaffAsync();
-        var entraGroups = await entraGroupService.GetAllGroupsAsync();
-        var entraDevices = await entraDeviceService.GetAllDevicesAsync();
+        var entraStudents = await entraUserService.GetAllCurrentStudentsAsync();
+        var entraStaff = await entraUserService.GetAllStaffAsync();
         
         var googleUsers = await googleService.GetAllUsersAsync();
-        var googleOrgUnits = await orgUnitService.GetAllOrgUnitsAsync();
-        var mergeService = serviceProvider.GetRequiredService<PeopleMergeService>();
         
+        //find duplicates in entraStudents
+        var duplicates = entraStaff.GroupBy(x => x.UserPrincipalName)
+            .Where(g => g.Count() > 1)
+            .Select(g => g.ToList())
+            .ToList();
 
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
