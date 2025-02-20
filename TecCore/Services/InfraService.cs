@@ -2,23 +2,18 @@
 
 namespace TecCore.Services;
 
-public class InfraService
+public static class InfraService
 {
     
-    
-    public InfraService()
+    public static List<RoomLocation> GetRoomLocations()
     {
         LoadRooms();
-    }
-    
-    public List<RoomLocation> GetRoomLocations()
-    {
         return RoomLocations;
     }
     
-    public List<RoomLocation> RoomLocations { get; set; } = [];
+    public static List<RoomLocation> RoomLocations { get; set; } = [];
 
-    private void LoadRooms()
+    private static void LoadRooms()
     {
         RoomLocations.Add(new RoomLocation { RoomNumber = "000", Name = "General/Other" });
         RoomLocations.Add(new RoomLocation { RoomNumber = "400", Name = "Digital Media" });

@@ -2,8 +2,8 @@
 
 namespace TecCore.Models;
 
-public class RoomLocation
-{
+public class RoomLocation : BaseEntity
+{ 
     [MaxLength(5)]
     public string RoomNumber { get; set; } = string.Empty;
     

@@ -66,7 +66,7 @@ public class ConfigService : IConfigService
         File.WriteAllText(ConfigFile, JsonConvert.SerializeObject(Config));
     }
     
-    public new void UpdateKeyValue(string key, string value)
+    public void UpdateKeyValue(string key, string value)
     {
         var config = Config;
         var type = config.GetType();

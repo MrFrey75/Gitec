@@ -1,11 +1,9 @@
 ﻿using Google.Apis.Admin.Directory.directory_v1;
 using Google.Apis.Services;
 using Microsoft.Extensions.DependencyInjection;
-using TecCore;
 using TecCore.Data;
 using Microsoft.EntityFrameworkCore;
 using TecCore.Services;
-using TecCore.Services.Entra;
 using TecCore.Services.Google;
 using TecCore.Utilities;
 

@@ -32,12 +32,16 @@ namespace TecCore.Services
 
         public TecTask CreateTask(TecTask task)
         {
+            if(!DateTime.TryParse(task.DueDate.ToString(), out var _))
+                task.DueDate = DateTimeOffset.Now + TimeSpan.FromDays(7);
+            
             task.Updates =
             [
                 new TecTaskUpdate
                 {
                     TaskState = TaskState.Submitted,
-                    UpdateType = UpdateType.StatusChange
+                    UpdateType = UpdateType.StatusChange,
+                    Notes = $"Task submitted {DateTimeOffset.Now}"
                 }
             ];
 
@@ -56,6 +60,11 @@ namespace TecCore.Services
         public void DeleteTask(Guid uid)
         {
             var task = GetTask(uid);
+            task.Updates.Add(new TecTaskUpdate
+            {
+                UpdateType = UpdateType.System,
+                Notes = "Task deleted."
+            });
             task.IsDeleted = true;
             _dbContext.SaveChanges();
         }
@@ -63,6 +72,11 @@ namespace TecCore.Services
         public void ArchiveTask(Guid uid)
         {
             var task = GetTask(uid);
+            task.Updates.Add(new TecTaskUpdate
+            {
+                UpdateType = UpdateType.System,
+                Notes = "Task archived."
+            });
             task.IsArchived = true;
             _dbContext.SaveChanges();
         }
@@ -70,6 +84,11 @@ namespace TecCore.Services
         public void UnarchiveTask(Guid uid)
         {
             var task = GetTask(uid);
+            task.Updates.Add(new TecTaskUpdate
+            {
+                UpdateType = UpdateType.System,
+                Notes = "Task unarchived."
+            });
             task.IsArchived = false;
             _dbContext.SaveChanges();
         }
@@ -80,29 +99,12 @@ namespace TecCore.Services
             task.Updates.Add(new TecTaskUpdate
             {
                 TaskState = state,
+                Notes = $"Updated from {task.TaskState} to {state}",
                 UpdateType = UpdateType.StatusChange
             });
         }
-        
-        //--
-        
-        public void AddUpdate(Guid uid, TecTaskUpdate update)
-        {
-            var task = GetTask(uid);
-            task.Updates.Add(update);
-            _dbContext.SaveChanges();
-        }
-        
-        public void RemoveUpdate(Guid uid, TecTaskUpdate update)
-        {
-            var task = GetTask(uid);
-            task.Updates.Remove(update);
-            _dbContext.SaveChanges();
-        }
-        
-        //--
 
-        public void AddAffectedUser(Guid uid, List<User> users)
+        public void AddAffectedUser(Guid uid, List<GitecUser> users)
         {
             var task = GetTask(uid);
             task.AffectedUsers.AddRange(users);
@@ -112,21 +114,20 @@ namespace TecCore.Services
                 UpdateType = UpdateType.UserImpact
             });
             _dbContext.SaveChanges();
-            
         }
         
-        public void AddAffectedUser(Guid uid, User user)
+        public void AddAffectedUser(Guid uid, GitecUser gitecUser)
         {
-            AddAffectedUser(uid, [user]);
+            AddAffectedUser(uid, [gitecUser]);
         }
         
-        public void RemoveAffectedUser(Guid uid, User user)
+        public void RemoveAffectedUser(Guid uid, GitecUser gitecUser)
         {
             var task = GetTask(uid);
-            task.AffectedUsers.Remove(user);
+            task.AffectedUsers.Remove(gitecUser);
             task.Updates.Add(new TecTaskUpdate
             {
-                Notes = "Removed user " + user.DisplayName,
+                Notes = "Removed user " + gitecUser.DisplayName,
                 UpdateType = UpdateType.UserImpact
             });
             _dbContext.SaveChanges();
@@ -134,7 +135,7 @@ namespace TecCore.Services
         
         //--
 
-        public void AddAffectedDevice(Guid uid, List<Device> devices)
+        public void AddAffectedDevice(Guid uid, List<GitecDevice> devices)
         {
             var task = GetTask(uid);
             task.AffectedDevices.AddRange(devices);
@@ -145,18 +146,18 @@ namespace TecCore.Services
             });
             _dbContext.SaveChanges();
         }
-        public void AddAffectedDevice(Guid uid, Device device)
+        public void AddAffectedDevice(Guid uid, GitecDevice gitecDevice)
         {
-            AddAffectedDevice(uid, [device]);
+            AddAffectedDevice(uid, [gitecDevice]);
         }
         
-        public void RemoveAffectedDevice(Guid uid, Device device)
+        public void RemoveAffectedDevice(Guid uid, GitecDevice gitecDevice)
         {
             var task = GetTask(uid);
-            task.AffectedDevices.Remove(device);
+            task.AffectedDevices.Remove(gitecDevice);
             task.Updates.Add(new TecTaskUpdate
             {
-                Notes = "Removed device " + device.DisplayName,
+                Notes = "Removed device " + gitecDevice.DisplayName,
                 UpdateType = UpdateType.DeviceImpact
             });
             _dbContext.SaveChanges();

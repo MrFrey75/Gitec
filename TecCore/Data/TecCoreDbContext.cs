@@ -13,7 +13,11 @@ namespace TecCore.Data
         // DbSets for your models
         public DbSet<TecTask> TecTasks { get; set; }
         public DbSet<TecTaskUpdate> TecTaskUpdates { get; set; }
-
+        public DbSet<GitecUser> Users { get; set; }
+        public DbSet<GitecDevice> Devices { get; set; }
+        public DbSet<RoomLocation> Rooms { get; set; }
+        
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -49,6 +53,21 @@ namespace TecCore.Data
                 entity.Property(tu => tu.Notes)
                       .HasMaxLength(1000);
 
+            });
+            
+            modelBuilder.Entity<GitecUser>(entity =>
+            {
+                entity.HasKey(u => u.Uid);
+            });
+            
+            modelBuilder.Entity<GitecDevice>(entity =>
+            {
+                entity.HasKey(d => d.Uid);
+            });
+            
+            modelBuilder.Entity<RoomLocation>(entity =>
+            {
+                entity.HasKey(r => r.Uid);
             });
         }
     }

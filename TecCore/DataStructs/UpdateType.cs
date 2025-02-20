@@ -12,4 +12,5 @@ public enum UpdateType
     UserImpact = 32,
     DeviceImpact = 64,
     Resolution = 128,
+    System = 256,
 }

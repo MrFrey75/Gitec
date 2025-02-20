@@ -46,14 +46,6 @@ public class TecTaskQueryService
         // SearchTerm
         if (!string.IsNullOrEmpty(options.SearchTerm))
             query = query.Where(x => x.TaskName.Contains(options.SearchTerm) || x.TaskDescription.Contains(options.SearchTerm));
-        
-        // Affected User
-        if (options.AffectedUser != null)
-            query = query.Where(x => x.AffectedUsers.Contains(options.AffectedUser));
-        
-        // Affected Device
-        if (options.AffectedDevice != null)
-            query = query.Where(x => x.AffectedDevices.Contains(options.AffectedDevice));
 
         // Execute the query and return the list of tasks.
         return query.ToList();
