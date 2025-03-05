@@ -12,7 +12,7 @@ namespace TecCore.Services.Entra
         protected static readonly string[] UserProperties =
         {
             "displayName", "id", "givenName", "surname", "jobTitle", "department",
-            "employeeType", "userType", "userPrincipalName", "mailNickname", "mail",
+            "employeeType", "userType", "userPrincipalName", "", "mail",
             "legalAgeGroupClassification", "jobTitle", "employeeType", "department",
             "createdDateTime", "consentProvidedForMinor", "companyName", "city", "ageGroup",
             "accountEnabled"

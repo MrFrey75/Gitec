@@ -10,7 +10,6 @@ public class EdCourse
     public RoomLocation? Classroom { get; set; }
     public List<FacultyMember> Faculty { get; set; } = [];
     public List<Student> Students { get; set; } = [];
-    public List<Paraprofessional> ParaPros { get; set; } = [];
     
     public void AddFaculty(IEnumerable<FacultyMember> faculty)
     {
@@ -27,14 +26,6 @@ public class EdCourse
     public void AddStudents(Student student)
     {
         this.Students.Add(student);
-    }
-    public void AddParaPros(IEnumerable<Paraprofessional> paras)
-    {
-        this.ParaPros.AddRange(paras);
-    }
-    public void AddParaPros(Paraprofessional para)
-    {
-        this.ParaPros.Add(para);
     }
     public void SetClassroom(RoomLocation room)
     {

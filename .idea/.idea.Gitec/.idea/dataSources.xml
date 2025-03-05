@@ -19,5 +19,12 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="display.db" uuid="74808657-2a60-40c2-8191-1ff33a42d7da">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/TransIT/display.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

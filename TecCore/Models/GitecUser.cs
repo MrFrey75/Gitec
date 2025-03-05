@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
 using TecCore.DataStructs;
 
 namespace TecCore.Models;
@@ -20,11 +21,10 @@ public class GitecUser : BaseEntity
     public string City { get; set; } = string.Empty;
     public string CompanyName { get; set; } = string.Empty;
     public string AgeGroup { get; set; } = string.Empty;
+    public string OfficeLocation { get; set; } = string.Empty;
     public bool AccountEnabled { get; set; } = true;
     public bool ConsentProvidedForMinor { get; set; } = false;
-
-    
-    
+   
     
     [NotMapped]
     public string FirstName => GivenName;
@@ -35,16 +35,13 @@ public class GitecUser : BaseEntity
     [NotMapped]
     public string SearchKey => $"{FirstName} {LastName} {JobTitle} {Department} {CompanyName}".ToLower();
     
-    
-    
-    
-    
 
 }
 
 public class Student : GitecUser
 {
- 
+    public int GraduationYear => int.TryParse(Department, out int year) ? year : 0;
+    public string SendingSchool => string.IsNullOrEmpty(City) ? "Unknown" : City; 
     public Student()
     {
         PersonType = PersonType.Student;
@@ -64,13 +61,5 @@ public class StaffMember : GitecUser
     public StaffMember()
     {
         PersonType = PersonType.Staff;
-    }
-}
-
-public class Paraprofessional  : GitecUser
-{
-    public Paraprofessional()
-    {
-        PersonType = PersonType.Paraprofessional;
     }
 }
